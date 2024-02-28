@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   mysql:
-    image: mysql:8.0
+    image: mtr140971/mysql:8.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: sml12345
@@ -13,7 +13,7 @@ services:
       -  ./mysql:/var/lib/mysql
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: mtr140971/phpmyadmin
     depends_on:
       - mysql
     environment:
@@ -27,7 +27,7 @@ services:
   wordpress:
     depends_on:
       - mysql
-    image: wordpress:latest
+    image: mtr140971/wordpress:latest
     ports:
       - "8020:80"
     restart: always
